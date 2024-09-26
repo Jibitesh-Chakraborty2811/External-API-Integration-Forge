@@ -1,0 +1,24 @@
+modules:
+  jira:adminPage:
+    - key: external-api-integration-hello-world-admin-page
+      resource: main
+      resolver:
+        function: resolver
+      title: external-api-integration
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: static/hello-world/build
+
+permissions:
+  external:
+    fetch:
+      backend:
+        - jira-dev.tools.sap
+  scopes: []
+app:
+  runtime:
+    name: nodejs20.x
+  id: ari:cloud:ecosystem::app/b57c50dc-488e-4d5e-a0e8-a408b82c6272
